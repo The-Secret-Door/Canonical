@@ -6,26 +6,8 @@
 
 -------------------------------------------------------------------
 
--Code to fix canonical issue through .htaccess file:
+Code to fix canonical issue through .htaccess file:
 #To Force www:
-
-
--RewriteEngineon
+RewriteEngineon
 RewriteCond%{HTTP_HOST} ^syntheticicesolutions.com [NC]
 RewriteRule ^(.*)$ https://www.syntheticicesolutions.com/$1 [L,R=301,NC]
-
-Ok
-s
-```json
-   // code for coloring
-```
-```html
-   // code for coloring
-```
-```js
-   // code for coloring
-```
-```css
-   // code for coloring
-```
-// etc.
