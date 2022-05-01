@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+	RewriteCond %{HTTPS} off [OR]
+	RewriteCond %{HTTP_HOST} ^www\.example\.com [NC]
+	RewriteRule (.*) https://example.com/$1 [L,R=301]
+</IfModule>
+
+-------------------------------------------------------------------
+
+Code to fix canonical issue through .htaccess file:
+#To Force www:
+RewriteEngineon
+RewriteCond%{HTTP_HOST} ^syntheticicesolutions.com [NC]
+RewriteRule ^(.*)$ https://www.syntheticicesolutions.com/$1 [L,R=301,NC]
