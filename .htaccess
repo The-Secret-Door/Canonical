@@ -22,17 +22,23 @@ RewriteRule ^(.*)$ https://www.syntheticicesolutions.com/$1 [L,R=301,NC]
 </IfModule>
 
 2. Below code is for index.html  version to https www version format
-RewriteCond %{THE_REQUEST} ^.*/index.html
-RewriteRule ^(.*)index.html$ https://www. examplesite.com/$1 [R=301,L]
+<IfModule mod_rewrite.c>
+	RewriteCond %{THE_REQUEST} ^.*/index.html
+	RewriteRule ^(.*)index.html$ https://www. examplesite.com/$1 [R=301,L]
+</IfModule>
 
 3. Below code is for https non-www version to https www version format
-RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^ examplesite\.com [NC]
-RewriteRule (.*) https://www. examplesite.com/$1 [L,R=301]
+<IfModule mod_rewrite.c>
+	RewriteCond %{HTTPS} off [OR]
+	RewriteCond %{HTTP_HOST} ^ examplesite\.com [NC]
+	RewriteRule (.*) https://www. examplesite.com/$1 [L,R=301]
+</IfModule>
 
 4. Below code is for https/http www version to https non-www version format
-RewriteCond %{HTTP_HOST} ^(?:www\.)examplesite\.com$ [NC]
-RewriteRule ^ https://examplesite.com%{REQUEST_URI} [L,R=301]
+<IfModule mod_rewrite.c>
+	RewriteCond %{HTTP_HOST} ^(?:www\.)examplesite\.com$ [NC]
+	RewriteRule ^ https://examplesite.com%{REQUEST_URI} [L,R=301]
+</IfModule>
 
 
 
